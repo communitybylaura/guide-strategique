@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optimise ton Instagram comme un·e pro - Le guide complet</title>
+<meta name="description" content="La méthode utilisée par une community manager pro pour auditer et optimiser ton compte Instagram. Guide Notion interactif.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bordeaux: #86010E;
+  --dark: #310F10;
+  --cream: #F9F6EF;
+  --rose: #EAA2B1;
+  --rose-light: #f3c8d3;
+  --rose-pale: #f8e0e7;
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-script: 'Caveat', cursive;
+  --font-serif: 'Playfair Display', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--dark);
+  background: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+.section-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── WAVE DIVIDERS ────────────────────────────── */
+.wave-divider { width: 100%; line-height: 0; overflow: hidden; }
+.wave-divider svg { width: 100%; height: 60px; display: block; }
+@media (max-width: 768px) { .wave-divider svg { height: 35px; } }
+
+/* ── CTA BUTTONS ──────────────────────────────── */
+.cta-btn {
+  display: inline-block;
+  background: var(--bordeaux);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 60px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+.cta-btn:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(134,1,14,0.3);
+}
+
+/* ── ANIMATIONS ───────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── TOPBAR ───────────────────────────────────── */
+.topbar {
+  background: var(--bordeaux);
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.78rem;
+  color: var(--cream);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.topbar a { color: var(--rose-light); text-decoration: underline; font-weight: 600; }
+
+/* ── NAVBAR ───────────────────────────────────── */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--cream);
+  padding: 14px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 2px solid rgba(49,15,16,0.06);
+}
+.nav-logo { font-family: var(--font-display); font-size: 0.8rem; color: var(--dark); letter-spacing: 1px; }
+.nav-cta {
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+  color: var(--cream); background: var(--bordeaux);
+  padding: 10px 22px; border-radius: 40px; border: none;
+  transition: all 0.2s ease;
+}
+.nav-cta:hover { background: var(--dark); }
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  background: var(--cream);
+  padding: 60px 24px 40px;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--rose-pale);
+  border: 2px solid var(--rose);
+  color: var(--bordeaux);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 22px;
+  border-radius: 40px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  line-height: 1.12; color: var(--dark); margin-bottom: 8px;
+}
+.hero h1 .serif-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bordeaux);
+  font-size: 0.7em;
+  margin-top: 8px;
+  display: inline-block;
+}
+.hero-sub {
+  font-size: 1rem; color: #5a3234; max-width: 540px;
+  margin: 24px auto 32px; line-height: 1.75; font-weight: 400;
+}
+.hero-sub strong { color: var(--bordeaux); font-weight: 600; }
+.hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+.hero-price { font-size: 0.85rem; color: #5a3234; }
+.hero-price .old { text-decoration: line-through; opacity: 0.5; }
+.hero-price .new { font-weight: 700; color: var(--bordeaux); font-size: 1.1rem; }
+.hero-note { font-family: var(--font-script); font-size: 1.3rem; color: var(--bordeaux); margin-top: 20px; transform: rotate(-1deg); }
+
+/* ── MARQUEE ──────────────────────────────────── */
+.marquee-wrap {
+  background: var(--bordeaux); padding: 14px 0; overflow: hidden;
+}
+.marquee-track { display: flex; width: max-content; animation: marquee 25s linear infinite; }
+.marquee-track span {
+  font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+  color: var(--cream); letter-spacing: 2px; text-transform: uppercase;
+  white-space: nowrap; padding: 0 32px;
+}
+.marquee-track span::after { content: '✦'; margin-left: 32px; color: var(--rose); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── PROBLEM ──────────────────────────────────── */
+.problem { background: var(--dark); padding: 80px 24px; }
+.problem .section-inner { text-align: center; }
+.problem-title {
+  font-family: var(--font-display); font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+  color: var(--cream); line-height: 1.35; margin-bottom: 12px;
+}
+.problem-title .underline-word {
+  text-decoration: underline; text-decoration-color: var(--rose);
+  text-underline-offset: 6px; text-decoration-thickness: 3px;
+}
+.problem-script {
+  font-family: var(--font-script); font-size: 1.6rem; color: var(--rose);
+  transform: rotate(-1.5deg); display: block; margin: 16px 0 32px;
+}
+.problem-text { max-width: 560px; margin: 0 auto; text-align: left; }
+.problem-text p { font-size: 0.92rem; color: var(--cream); opacity: 0.75; line-height: 1.8; margin-bottom: 16px; }
+.problem-text p strong { color: var(--cream); font-weight: 600; opacity: 1; }
+.problem-closer {
+  font-family: var(--font-script); font-size: 1.5rem; color: var(--rose);
+  text-align: center; margin-top: 24px; transform: rotate(-2deg);
+}
+
+/* ── SOLUTION ─────────────────────────────────── */
+.solution { background: var(--cream); padding: 80px 24px; }
+.solution .section-inner { text-align: center; }
+.solution-label { font-family: var(--font-script); font-size: 1.4rem; color: var(--bordeaux); margin-bottom: 8px; transform: rotate(-1deg); display: inline-block; }
+.solution-title {
+  font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem);
+  line-height: 1.2; color: var(--dark); margin-bottom: 12px;
+}
+.solution-title .serif-word {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bordeaux);
+}
+.solution-sub { font-size: 0.92rem; color: #5a3234; max-width: 540px; margin: 0 auto 48px; line-height: 1.75; }
+
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
+.step-card {
+  background: var(--rose-pale); border: 2px solid var(--rose);
+  border-radius: 20px; padding: 28px 24px; transition: transform 0.3s ease;
+}
+.step-card:hover { transform: translateY(-4px); }
+.step-card:nth-child(2) { transform: rotate(1deg); }
+.step-card:nth-child(2):hover { transform: rotate(1deg) translateY(-4px); }
+.step-card:nth-child(3) { transform: rotate(-0.5deg); }
+.step-card:nth-child(3):hover { transform: rotate(-0.5deg) translateY(-4px); }
+.step-num { font-family: var(--font-script); font-size: 2.2rem; font-weight: 700; color: var(--bordeaux); line-height: 1; margin-bottom: 8px; }
+.step-card h3 { font-family: var(--font-display); font-size: 0.85rem; color: var(--dark); margin-bottom: 8px; }
+.step-card p { font-size: 0.82rem; color: #5a3234; line-height: 1.6; }
+
+/* ── CONTENTS ─────────────────────────────────── */
+.contents { background: var(--dark); padding: 80px 24px; }
+.contents .section-inner { text-align: center; }
+.contents-label { font-family: var(--font-script); font-size: 1.4rem; color: var(--rose); display: inline-block; transform: rotate(-1deg); margin-bottom: 8px; }
+.contents-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--cream); margin-bottom: 48px; }
+
+.modules-list { display: grid; gap: 16px; text-align: left; }
+.module-card {
+  background: rgba(249,246,239,0.06); border: 1.5px solid rgba(234,162,177,0.15);
+  border-radius: 18px; padding: 28px; display: grid;
+  grid-template-columns: auto 1fr; gap: 20px; align-items: start;
+  transition: all 0.3s ease;
+}
+.module-card:hover { background: rgba(249,246,239,0.1); transform: translateX(4px); }
+.module-badge {
+  background: var(--bordeaux); color: var(--cream);
+  font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 2px;
+  padding: 8px 14px; border-radius: 10px; white-space: nowrap; margin-top: 2px;
+}
+.module-info h3 { font-family: var(--font-display); font-size: 0.95rem; color: var(--cream); margin-bottom: 6px; }
+.module-info p { font-size: 0.83rem; color: var(--cream); opacity: 0.6; line-height: 1.65; margin-bottom: 10px; }
+.module-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.module-tag { font-size: 0.68rem; font-weight: 500; background: rgba(234,162,177,0.12); color: var(--rose); padding: 3px 10px; border-radius: 20px; }
+
+/* ── FOR WHO ──────────────────────────────────── */
+.for-who { background: var(--cream); padding: 80px 24px; }
+.for-who .section-inner { text-align: center; }
+.for-who-label { font-family: var(--font-script); font-size: 1.4rem; color: var(--bordeaux); display: inline-block; transform: rotate(-1deg); margin-bottom: 8px; }
+.for-who-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--dark); margin-bottom: 48px; }
+.for-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; text-align: left; }
+.fw-col { border-radius: 20px; padding: 32px 28px; border: 2px solid; }
+.fw-col-yes { background: var(--rose-pale); border-color: var(--rose); }
+.fw-col-no { background: rgba(49,15,16,0.03); border-color: rgba(49,15,16,0.1); }
+.fw-col h3 { font-family: var(--font-display); font-size: 0.9rem; color: var(--dark); margin-bottom: 20px; }
+.fw-item { display: flex; align-items: flex-start; gap: 12px; font-size: 0.85rem; color: #5a3234; line-height: 1.55; margin-bottom: 14px; }
+.fw-item:last-child { margin-bottom: 0; }
+.fw-check { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; margin-top: 1px; }
+.fw-check-yes { background: var(--bordeaux); color: var(--cream); }
+.fw-check-no { background: rgba(49,15,16,0.08); color: #5a3234; }
+
+/* ── AUTHORITY ────────────────────────────────── */
+.authority { background: var(--dark); padding: 80px 24px; }
+.authority .section-inner { text-align: center; }
+.authority-script { font-family: var(--font-script); font-size: 1.5rem; color: var(--rose); transform: rotate(-1.5deg); display: inline-block; margin-bottom: 4px; }
+.authority h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 3.5vw, 1.8rem); color: var(--cream); margin-bottom: 16px; }
+.authority-text p { font-size: 0.92rem; color: var(--cream); opacity: 0.7; line-height: 1.8; max-width: 560px; margin: 0 auto 12px; }
+.authority-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+.authority-tag { font-size: 0.72rem; font-weight: 600; background: var(--bordeaux); color: var(--cream); padding: 6px 16px; border-radius: 20px; }
+
+/* ── PRICING ──────────────────────────────────── */
+.pricing { background: var(--cream); padding: 80px 24px; }
+.pricing .section-inner { text-align: center; }
+.pricing-script { font-family: var(--font-script); font-size: 1.4rem; color: var(--bordeaux); display: inline-block; transform: rotate(-1deg); margin-bottom: 8px; }
+.pricing-title { font-family: var(--font-display); font-size: clamp(1.4rem, 3.5vw, 2rem); color: var(--dark); margin-bottom: 40px; }
+.price-card {
+  background: var(--rose-pale); border: 3px solid var(--rose);
+  border-radius: 28px; padding: 44px 36px; max-width: 500px; margin: 0 auto; position: relative;
+}
+.price-card::before {
+  content: '🔥 Prix de lancement'; position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+  background: var(--bordeaux); color: var(--cream); font-family: var(--font-body);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 20px; border-radius: 30px; border: none; white-space: nowrap;
+}
+.price-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 12px 0 4px; }
+.price-old { font-size: 1.5rem; color: var(--dark); opacity: 0.35; text-decoration: line-through; font-weight: 300; }
+.price-amount { font-family: var(--font-display); font-size: 3.2rem; color: var(--bordeaux); line-height: 1; }
+.price-note { font-size: 0.78rem; color: #5a3234; margin-bottom: 28px; }
+.price-features { list-style: none; text-align: left; margin-bottom: 32px; }
+.price-features li {
+  padding: 9px 0; font-size: 0.87rem; color: var(--dark);
+  border-bottom: 1px dashed rgba(49,15,16,0.12);
+  display: flex; align-items: center; gap: 10px;
+}
+.price-features li::before { content: '✦'; color: var(--bordeaux); font-size: 0.65rem; flex-shrink: 0; }
+.price-features li:last-child { border-bottom: none; }
+.price-card .cta-btn { width: 100%; text-align: center; font-size: 1rem; }
+.price-guarantee { font-size: 0.75rem; color: #5a3234; margin-top: 14px; opacity: 0.7; }
+
+/* ── FAQ ──────────────────────────────────────── */
+.faq { background: var(--dark); padding: 80px 24px; }
+.faq .section-inner { max-width: 700px; }
+.faq-script { font-family: var(--font-script); font-size: 1.4rem; color: var(--rose); display: inline-block; transform: rotate(-1deg); margin-bottom: 8px; }
+.faq-title { font-family: var(--font-display); font-size: clamp(1.4rem, 3.5vw, 2rem); color: var(--cream); margin-bottom: 40px; }
+.faq-item { border-bottom: 1px solid rgba(234,162,177,0.12); }
+.faq-question {
+  width: 100%; background: none; border: none; text-align: left;
+  padding: 22px 0; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  color: var(--cream); cursor: pointer; display: flex;
+  justify-content: space-between; align-items: center; gap: 16px;
+  transition: color 0.3s ease;
+}
+.faq-question:hover { color: var(--rose); }
+.faq-arrow { flex-shrink: 0; font-size: 1.2rem; color: var(--rose); transition: transform 0.3s ease; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 20px; }
+.faq-answer p { font-size: 0.87rem; color: var(--cream); opacity: 0.62; line-height: 1.7; }
+
+/* ── UPSELL ───────────────────────────────────── */
+.upsell { background: var(--cream); padding: 80px 24px; }
+.upsell .section-inner { text-align: center; }
+.upsell-script { font-family: var(--font-script); font-size: 1.4rem; color: var(--bordeaux); display: inline-block; transform: rotate(-1deg); margin-bottom: 8px; }
+.upsell-title { font-family: var(--font-display); font-size: clamp(1.4rem, 3.5vw, 2rem); color: var(--dark); margin-bottom: 32px; }
+.upsell-card {
+  background: var(--dark); border: 3px solid rgba(234,162,177,0.2);
+  border-radius: 28px; padding: 44px 36px; max-width: 580px; margin: 0 auto;
+}
+.upsell-card > p { color: var(--cream); opacity: 0.7; font-size: 0.92rem; line-height: 1.75; margin-bottom: 24px; }
+.upsell-list { list-style: none; text-align: left; margin-bottom: 28px; }
+.upsell-list li { color: var(--cream); opacity: 0.75; font-size: 0.87rem; padding: 7px 0; display: flex; align-items: center; gap: 10px; }
+.upsell-list li::before { content: '◆'; color: var(--rose); font-size: 0.55rem; flex-shrink: 0; }
+.upsell-prices { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 6px; }
+.upsell-old { font-size: 1.3rem; color: var(--cream); opacity: 0.3; text-decoration: line-through; }
+.upsell-new { font-family: var(--font-display); font-size: 2.4rem; color: var(--rose); }
+.upsell-savings { font-family: var(--font-script); font-size: 1.2rem; color: var(--rose); margin-bottom: 24px; transform: rotate(-1deg); }
+.upsell-card .cta-btn { background: var(--rose); color: var(--dark); }
+.upsell-card .cta-btn:hover { background: var(--cream); }
+.upsell-note { font-size: 0.72rem; color: var(--cream); opacity: 0.35; margin-top: 16px; }
+
+/* ── FOOTER ───────────────────────────────────── */
+footer {
+  background: var(--dark); padding: 32px 24px; text-align: center;
+  border-top: 3px solid var(--bordeaux);
+}
+footer p { font-size: 0.75rem; color: var(--cream); opacity: 0.35; }
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+  .step-card, .step-card:nth-child(2), .step-card:nth-child(3) { transform: none; }
+  .step-card:hover, .step-card:nth-child(2):hover, .step-card:nth-child(3):hover { transform: translateY(-4px); }
+  .for-who-grid { grid-template-columns: 1fr; gap: 16px; }
+  .module-card { grid-template-columns: 1fr; gap: 12px; }
+  .price-card, .upsell-card { padding: 36px 24px; }
+  .hero { padding: 40px 20px 30px; }
+  .problem, .solution, .contents, .for-who, .authority, .pricing, .faq, .upsell { padding: 60px 20px; }
+  .problem-title { font-size: clamp(1rem, 3vw, 1.5rem); }
+}
+@media (max-width: 480px) {
+  .navbar { padding: 12px 16px; }
+  .nav-logo { font-size: 0.72rem; }
+  .nav-cta { font-size: 0.7rem; padding: 8px 14px; }
+  .topbar { font-size: 0.7rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ──────────────────────────────────── -->
+<nav class="navbar">
+  <div class="nav-logo">COMMUNITY BY LAURA</div>
+  <a href="#pricing" class="nav-cta">Obtenir le guide →</a>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────── -->
+<section class="hero fade-in">
+  <div class="section-inner">
+    <div class="hero-badge">TON GUIDE NOTION INTERACTIF</div>
+    <h1>OPTIMISE TON INSTAGRAM<span class="serif-line">comme un·e pro</span></h1>
+    <p class="hero-sub">La méthode que j'utilise en tant que community manager pour mes <strong>audits d'une valeur de 590€</strong>, maintenant entre tes mains pour optimiser ton compte toi-même.</p>
+    <div class="hero-ctas"><a href="https://buy.stripe.com/14A4gB2sY5iK5Aq4VkeQM00" class="cta-btn">Accéder au guide, 27€ →</a></div>
+    <p class="hero-price"><span class="old">37€</span> <span class="new">27€</span> · Paiement unique · Accès à vie</p>
+    <p class="hero-note">↓ la méthode qui change tout ↓</p>
+  </div>
+</section>
+
+<!-- ── MARQUEE ─────────────────────────────────── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Calendrier éditorial Notion offert</span><span>Basé sur ma méthode pro d'une valeur de 590€</span><span>Espace Notion interactif complet</span><span>Calendrier éditorial Notion offert</span><span>Basé sur ma méthode pro d'une valeur de 590€</span><span>Espace Notion interactif complet</span><span>Calendrier éditorial Notion offert</span><span>Basé sur ma méthode pro d'une valeur de 590€</span><span>Espace Notion interactif complet</span>
+  </div>
+</div>
+
+<!-- ── Transition droite: cream → dark ─────────── -->
+
+<!-- ── PROBLEM ─────────────────────────────────── -->
+<section class="problem fade-in">
+  <div class="section-inner">
+    <h2 class="problem-title">Ton feed est <span class="underline-word">rempli</span> de comptes qui cartonnent mais le tien... reste <span class="underline-word">invisible.</span></h2>
+    <span class="problem-script">Ça te parle ?</span>
+    <div class="problem-text">
+      <p>Tu postes régulièrement, tu essaies les Reels, les carrousels, les stories... Mais <strong>les likes stagnent</strong>, les abonnés n'arrivent pas et tu te demandes ce que tu fais de travers.</p>
+      <p>Tu vois d'autres comptes dans ton secteur qui explosent, pourtant leur contenu n'est pas meilleur que le tien. <strong>Quelque chose bloque</strong>, mais tu ne sais pas quoi.</p>
+      <p>Et un accompagnement mensuel par un pro ? <strong>Pas dans ton budget.</strong></p>
+    </div>
+    <p class="problem-closer">C'est exactement pour ça que j'ai créé ce guide ↓</p>
+  </div>
+</section>
+
+<!-- ── WAVE: dark bosse vers le bas ───────────── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#310F10"/></svg></div>
+
+<!-- ── SOLUTION ────────────────────────────────── -->
+<section class="solution fade-in">
+  <div class="section-inner">
+    <span class="solution-label">La solution</span>
+    <h2 class="solution-title">Un guide pas-à-pas pour<br>auditer ton compte <span class="serif-word">toi-même.</span></h2>
+    <p class="solution-sub">Ce n'est pas une simple checklist mais une vraie méthodologie en 5 parties : la même que j'utilise pour mes clients.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><h3>Tu audites ton compte</h3><p>Profil, bio, contenu, cohérence visuelle, SEO social : tu passes tout au crible avec des critères précis et un score.</p></div>
+      <div class="step-card"><div class="step-num">02</div><h3>Tu analyses ton marché</h3><p>Concurrents, audience, opportunités : tu comprends ce qui marche dans ton secteur et ce que personne ne fait encore.</p></div>
+      <div class="step-card"><div class="step-num">03</div><h3>Tu passes à l'action</h3><p>Piliers de contenu, recommandations priorisées, plan éditorial... Tu auras tout pour booster ta présence en ligne.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAVE: cream bosse vers le bas (haut du bloc dark) ── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#F9F6EF"/></svg></div>
+
+<!-- ── CONTENTS ────────────────────────────────── -->
+<section class="contents fade-in">
+  <div class="section-inner">
+    <span class="contents-label">Ce qu'il y a dedans</span>
+    <h2 class="contents-title">5 parties pour un audit complet.</h2>
+    <div class="modules-list">
+      <div class="module-card"><div class="module-badge">PARTIE 01</div><div class="module-info"><h3>Audit de ton compte Instagram</h3><p>Analyse complète de ton profil, bio, performance des 30 derniers posts, cohérence visuelle et SEO social.</p><div class="module-tags"><span class="module-tag">Profil & Bio</span><span class="module-tag">Engagement</span><span class="module-tag">Ligne éditoriale</span><span class="module-tag">SEO Social</span></div></div></div>
+      <div class="module-card"><div class="module-badge">PARTIE 02</div><div class="module-info"><h3>Analyse de la concurrence</h3><p>Sélectionne 3 à 5 concurrents, benchmark leurs performances et identifie les opportunités inexploitées.</p><div class="module-tags"><span class="module-tag">Benchmark</span><span class="module-tag">Opportunités</span><span class="module-tag">Tableau comparatif</span></div></div></div>
+      <div class="module-card"><div class="module-badge">PARTIE 03</div><div class="module-info"><h3>Analyse de ton audience cible</h3><p>Données démographiques, comportements, heures de pointe et adéquation audience/contenu.</p><div class="module-tags"><span class="module-tag">Insights</span><span class="module-tag">Persona</span><span class="module-tag">Adéquation</span></div></div></div>
+      <div class="module-card"><div class="module-badge">PARTIE 04</div><div class="module-info"><h3>Recommandations stratégiques</h3><p>Des recommandations priorisées, tes piliers de contenu définis et un plan éditorial prêt à l'emploi.</p><div class="module-tags"><span class="module-tag">Piliers</span><span class="module-tag">Plan éditorial</span><span class="module-tag">Recommandations</span></div></div></div>
+      <div class="module-card"><div class="module-badge">PARTIE 05</div><div class="module-info"><h3>Ton score final & prochaines étapes</h3><p>Calcule ton score global sur 29 points, identifie ton niveau et définis tes 3 actions prioritaires.</p><div class="module-tags"><span class="module-tag">Score /29</span><span class="module-tag">Priorités</span><span class="module-tag">Plan d'action</span></div></div></div>
+      <div class="module-card"><div class="module-badge">BONUS</div><div class="module-info"><h3>Outils & calendrier éditorial offert</h3><p>Les outils recommandés pour gérer tes réseaux et un espace de gestion de calendrier éditorial Notion prêt à l'emploi.</p><div class="module-tags"><span class="module-tag">Outils gratuits</span><span class="module-tag">Calendrier éditorial</span><span class="module-tag">Notion</span></div></div></div>
+    </div>
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="https://buy.stripe.com/14A4gB2sY5iK5Aq4VkeQM00" class="cta-btn" style="background: var(--rose); color: var(--dark);">Profiter de l'offre de lancement →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAVE: dark bosse vers le bas ───────────── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#310F10"/></svg></div>
+
+<!-- ── FOR WHO ─────────────────────────────────── -->
+<section class="for-who fade-in">
+  <div class="section-inner">
+    <span class="for-who-label">C'est pour toi ?</span>
+    <h2 class="for-who-title">Ce guide est fait pour toi si…</h2>
+    <div class="for-who-grid">
+      <div class="fw-col fw-col-yes">
+        <h3>✓ Oui, fonce</h3>
+        <div class="fw-item"><span class="fw-check fw-check-yes">✓</span>Tu gères les réseaux sociaux de ta marque ou de ton business</div>
+        <div class="fw-item"><span class="fw-check fw-check-yes">✓</span>Tu publies mais tu ne vois pas de résultats concrets</div>
+        <div class="fw-item"><span class="fw-check fw-check-yes">✓</span>Tu n'as pas le budget pour un accompagnement</div>
+        <div class="fw-item"><span class="fw-check fw-check-yes">✓</span>Tu veux comprendre ce qui bloque ton compte</div>
+        <div class="fw-item"><span class="fw-check fw-check-yes">✓</span>Tu es e-commerçant·e, artisan·e, créateur·rice ou gérant·e de TPE</div>
+      </div>
+      <div class="fw-col fw-col-no">
+        <h3>✗ Pas cette fois</h3>
+        <div class="fw-item"><span class="fw-check fw-check-no">✗</span>Tu cherches une solution miracle sans effort</div>
+        <div class="fw-item"><span class="fw-check fw-check-no">✗</span>Tu veux acheter des followers</div>
+        <div class="fw-item"><span class="fw-check fw-check-no">✗</span>Tu n'as pas encore de compte pro Instagram</div>
+        <div class="fw-item"><span class="fw-check fw-check-no">✗</span>Tu préfères tout déléguer (contacte-moi directement !)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAVE: cream bosse vers le bas (haut du bloc dark) ── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#F9F6EF"/></svg></div>
+
+<!-- ── AUTHORITY ───────────────────────────────── -->
+<section class="authority fade-in">
+  <div class="section-inner">
+    <span class="authority-script">Qui suis-je ?</span>
+    <h2>Community manager freelance.</h2>
+    <div class="authority-text">
+      <p>Je suis Laura, community manager et créatrice UGC. J'accompagne les marques et les entrepreneur·es qui veulent que leurs réseaux sociaux travaillent enfin pour eux.</p>
+      <p>Ce guide reprend la méthode exacte de mon audit professionnel d'une valeur de 590€.</p>
+      <p>La seule différence ? C'est toi qui le fais, à ton rythme, avec ma méthodologie entre les mains.</p>
+    </div>
+    <div class="authority-tags">
+      <span class="authority-tag">Community Manager</span>
+      <span class="authority-tag">Créatrice UGC</span>
+      <span class="authority-tag">Monteuse Vidéo</span>
+      <span class="authority-tag">+20 marques accompagnées</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAVE: dark bosse vers le bas ───────────── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#310F10"/></svg></div>
+
+<!-- ── PRICING ─────────────────────────────────── -->
+<section class="pricing fade-in" id="pricing">
+  <div class="section-inner">
+    <span class="pricing-script">L'offre</span>
+    <h2 class="pricing-title">Un investissement accessible,<br>des résultats concrets.</h2>
+    <div class="price-card">
+      <div class="price-row"><span class="price-old">37€</span><div class="price-amount">27€</div></div>
+      <p class="price-note">Paiement unique · Accès à vie · Mises à jour incluses</p>
+      <ul class="price-features">
+        <li>Guide Notion interactif complet, 5 parties</li>
+        <li>To-do lists, tableaux et zones de notes intégrés</li>
+        <li>Système de scoring sur 29 points</li>
+        <li>15 recommandations priorisées par impact</li>
+        <li>Plan éditorial 30 jours prêt à l'emploi</li>
+        <li>Espace de gestion de calendrier éditorial offert</li>
+        <li>Piliers de contenu & objectifs stratégiques</li>
+        <li>Liste d'outils gratuits recommandés</li>
+      </ul>
+      <a href="https://buy.stripe.com/14A4gB2sY5iK5Aq4VkeQM00" class="cta-btn">Obtenir le guide maintenant →</a>
+      <p class="price-guarantee">Accès Notion instantané après paiement via Stripe</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAVE: cream bosse vers le bas (haut du bloc dark) ── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#F9F6EF"/></svg></div>
+
+<!-- ── FAQ ─────────────────────────────────────── -->
+<section class="faq fade-in">
+  <div class="section-inner">
+    <span class="faq-script">Questions fréquentes</span>
+    <h2 class="faq-title">Tu hésites encore ? C'est normal.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question">Je n'ai aucune connaissance en marketing. Je vais m'en sortir ?<span class="faq-arrow">+</span></button><div class="faq-answer"><p>Absolument ! Le guide est conçu pour être accessible à tout le monde, même sans connaissances en marketing. Chaque étape est expliquée simplement avec des exemples concrets. Tu n'as qu'à suivre le guide pas à pas.</p></div></div>
+      <div class="faq-item"><button class="faq-question">J'ai très peu d'abonnés. Ça sert à quelque chose de faire un audit ?<span class="faq-arrow">+</span></button><div class="faq-answer"><p>C'est justement le meilleur moment pour le faire ! Plus tu optimises tôt, plus ta croissance sera solide. L'audit te permet de construire des bases saines dès le départ au lieu de corriger des erreurs plus tard.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Quelle différence avec ton audit professionnel à 590€ ?<span class="faq-arrow">+</span></button><div class="faq-answer"><p>La méthode est la même. Dans l'audit à 590€, c'est moi qui fais tout le travail pour toi avec mes outils pro et un appel de restitution personnalisé de 45 minutes. Avec le guide, tu as la méthodologie complète pour le faire toi-même, à ton rythme.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Comment je reçois le guide après l'achat ?<span class="faq-arrow">+</span></button><div class="faq-answer"><p>Après ton paiement via Stripe, tu reçois immédiatement un lien pour dupliquer le template Notion dans ton espace personnel. Notion est gratuit, tu crées un compte en 2 minutes si tu n'en as pas encore.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Si j'ai des questions après l'achat, comment je fais ?<span class="faq-arrow">+</span></button><div class="faq-answer"><p>Chaque section du guide est accompagnée d'explications détaillées et d'exemples concrets. Et si tu veux aller encore plus loin, tu peux réserver un audit complet personnalisé avec moi à un tarif préférentiel.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAVE: dark bosse vers le bas ───────────── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#310F10"/></svg></div>
+
+<!-- ── UPSELL ──────────────────────────────────── -->
+<section class="upsell fade-in" id="audit">
+  <div class="section-inner">
+    <span class="upsell-script">Aller plus loin</span>
+    <h2 class="upsell-title">Tu préfères que je le fasse pour toi ?</h2>
+    <div class="upsell-card">
+      <p>Tu veux un vrai regard d'expert sur ton compte ? Réserve un audit complet personnalisé. Et parce que tu viens de cette page, tu bénéficies d'une offre exclusive :</p>
+      <ul class="upsell-list">
+        <li>Audit complet réalisé par mes soins</li>
+        <li>Recommandations personnalisées</li>
+        <li>Plan éditorial 30 jours sur-mesure prêt à l'emploi</li>
+        <li>15 idées de contenus par piliers</li>
+        <li>Appel de restitution 45 minutes</li>
+        <li>Support 7 jours après livraison</li>
+        <li>Espace de gestion de calendrier éditorial Notion offert</li>
+      </ul>
+      <div class="upsell-prices"><span class="upsell-old">590€</span><span class="upsell-new">490€</span></div>
+      <p class="upsell-savings">-100€ exclusivement depuis cette page</p>
+      <a href="https://calendly.com/farinalaura/30min" class="cta-btn">Prendre RDV pour en discuter →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAVE: cream bosse vers le bas (haut du bloc dark) ── -->
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#F9F6EF"/></svg></div>
+
+<!-- ── FOOTER ──────────────────────────────────── -->
+<footer><p>© 2026 Community by Laura - Tous droits réservés</p></footer>
+
+<!-- ── SCRIPTS ─────────────────────────────────── -->
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
